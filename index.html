@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+	<body>
+	<form action="">
+	    <h3>Details Form</h3>
+	    <hr>
+	    <div>
+	        <div>
+	            <label for="name">Name : </label>
+	            <input id="name" minlength="3" type="text" placeholder="Enter Full Name" required>
+	        </div>
+
+	        <div>
+	            <label for="number">Mob. No : </label>
+	            <input id="number" type="tel" minlength="10" maxlength="10"  placeholder="10 digit mobile no." pattern="[0-9]{10}" required>
+	        </div>
+	        <div>
+	            <label for="email">Email Id : </label>
+	            <input id="email" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" type="email" placeholder="example@mail.com" required>
+	        </div>
+	        <div>
+	            <!-- <label for="submit">Submit </label> -->
+	            <input type="button" name="name" id="btn" value="Submit" onclick="AddRow()">
+	        </div>
+	        </div>
+	</form>
+	<hr>
+
+
+
+
+	  <table  id="show">
+	   <thead>
+	    <tr>
+	     <th>Name</th>
+	     <th>Mob. No</th>
+	     <th>Email Id</th>
+	    </tr>
+	   </thead>
+	  </table>
+
+	 <script>
+	    var list1 = [];
+	 	  var list2 = [];
+	 	  var list3 = [];
+
+
+	 	  var n = 1;
+	 	  var x = 0;
+
+	 	  function AddRow(){
+
+	 	   var AddRown = document.getElementById('show');
+	 	   var NewRow = AddRown.insertRow(n);
+
+	 	   list1[x] = document.getElementById("name").value;
+	 	   list2[x] = document.getElementById("number").value;
+	 	   list3[x] = document.getElementById("email").value;
+
+	 	   var cel1 = NewRow.insertCell(0);
+	 	   var cel2 = NewRow.insertCell(1);
+	 	   var cel3 = NewRow.insertCell(2);
+
+	 	   cel1.innerHTML = list1[x];
+	 	   cel2.innerHTML = list2[x];
+	 	   cel3.innerHTML = list3[x];
+
+	 	   n++;
+	 	   x++;
+	 	  }</script>
+	</body>
+	</html>
